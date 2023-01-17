@@ -10,6 +10,7 @@ We trained each of the three algorithms mentioned above on the same items of the
 The MAML (Finn, Abbeel, and Levin, 2017) learns a generalised “internal representation” of the tasks that can be easily adapted to a new task by adjusting parameters a little with the help of gradient descent. This is usually achieved by having a dataset consisting of several subsets, each of which is a different task with some examples. In this way, the network learns to find the general pattern common to the different tasks in the set and fine-tune it to each new task.
 
 For the implementation of MAML, we used the code provided in our course material on Moodle and modified it to fit our task. As the ARC problem involves recognizing patterns, we used the Regression MAML model including 2 Conv2D layers each with ReLU activation function. The input is of shape (10,10,1) and the Convolutional layers contain 50 and 100 neurons respectively followed by an output Dense layer with 10 neurons. The loss function used was Mean Squared Error (MSE).
+![MAML plot](https://github.com/Grobulia/Project-Learning-Robots/blob/main/pictures/LR%20report%20MAML.jpg)
 
 ## CNN
 For CNN we used the existing implementation by Tarun Paparaju published on Kaggle. The approach uses a CNN model that accepts a 2D input and returns a 2D output. It consists of two convolutional layers followed by two max-pooling layers, a dense layer and the output layer that outputs softmax probabilities for each of the pixels (see figure 1). The softmax probabilities are then converted to the final output matrix with the use of argmax and resize functions. 
@@ -33,5 +34,10 @@ For training the Decision Tree, we used a Gradient Boosted Decision Tree using t
 
 ## Evaluation
 In order to evaluate and compare the performance of the MAML, CNN and the Decision Tree, we chose the simplest accuracy measure that could be applied to all of them - the number of matching cells between their output and the ‘correct’ output. For the outputs of MAML and CNN the outputs were rounded up to have integer matrices.
+![Eval pictures](https://github.com/Grobulia/Project-Learning-Robots/blob/main/pictures/LR%20report%20eval%20data.jpg)
 
 Two evaluation sets, 8 items each with dimensions 10x10, were generated: one was a set of items that were manually created to resemble the training items, whereas the other one was randomly generated. For the second set, the ‘correct’ answers, i.e. matrices with correctly coloured cells, were created through manual editing of the randomly generated matrices. They can be found in the respective folders.
+
+## Results
+![Results table](https://github.com/Grobulia/Project-Learning-Robots/blob/main/pictures/LR%20report%20results.jpg?raw=true)
+
